@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinAdvisor AI – Finance & Stock Market Chatbot</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <rect width="32" height="32" rx="8" fill="#2563EB"/>
+                <path d="M8 20L12 16L16 18L24 10" stroke="white" stroke-width="2.5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="24" cy="10" r="2" fill="white"/>
+            </svg>
+            <span>FinAdvisor AI</span>
+        </div>
+
+        <a href="#" class="docs-link">Finance Chatbot</a>
+    </header>
+
+    <!-- CHAT AREA -->
+    <main class="chat-container">
+        <div class="chat-messages" id="chatMessages">
+
+            <div class="welcome-message">
+                <h1>FinAdvisor AI</h1>
+                <p>
+                    A unified Finance & Stock Market Chatbot designed to simplify
+                    complex financial information and deliver real-time market insights.
+                </p>
+
+                <div class="suggestions">
+                    <button class="suggestion"
+                            onclick="sendSuggestion('Explain stock market basics')">
+                        Stock market basics
+                    </button>
+
+                    <button class="suggestion"
+                            onclick="sendSuggestion('Get latest stock price of TCS')">
+                        Latest stock price
+                    </button>
+
+                    <button class="suggestion"
+                            onclick="sendSuggestion('Explain mutual funds in simple terms')">
+                        Mutual fund guide
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- INPUT -->
+        <form class="chat-input-form" id="chatForm">
+            <div class="input-wrapper">
+                <input
+                        type="text"
+                        id="messageInput"
+                        placeholder="Ask finance or stock market related questions..."
+                        autocomplete="off"
+                >
+
+                <button type="submit" id="sendBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2">
+                        <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z"/>
+                    </svg>
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <!-- SETUP PANEL -->
+    <div class="setup-panel" id="setupPanel">
+        <h3>Configuration</h3>
+
+        <div class="setup-field">
+            <label for="apiKey">Finance API Key</label>
+            <input type="password" id="apiKey" placeholder="Enter API key (Alpha Vantage)">
+            <small>Used for real-time stock data</small>
+        </div>
+
+        <div class="setup-field">
+            <label for="modelSelect">AI Engine</label>
+            <select id="modelSelect">
+                <option value="dialogflow">Dialogflow ES (NLU)</option>
+                <option value="gemini">Gemini API (Generative AI)</option>
+            </select>
+        </div>
+
+        <button class="save-btn" onclick="saveSetup()">Save Settings</button>
+    </div>
+
+    <!-- TOGGLE BUTTON -->
+    <button class="toggle-setup" id="toggleSetup" onclick="toggleSetup()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42
+                     M18.36 18.36l1.42 1.42M1 12h2M21 12h2
+                     M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+    </button>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
